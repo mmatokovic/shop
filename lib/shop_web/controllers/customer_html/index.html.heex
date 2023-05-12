@@ -1,0 +1,27 @@
+<.header>
+  Listing Customers
+  <:actions>
+    <.link href={~p"/customers/new"}>
+      <.button>New Customer</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<.table id="customers" rows={@customers} row_click={&JS.navigate(~p"/customers/#{&1}")}>
+  <:col :let={customer} label="First name"><%= customer.first_name %></:col>
+  <:col :let={customer} label="Last name"><%= customer.last_name %></:col>
+  <:col :let={customer} label="Email"><%= customer.email %></:col>
+  <:col :let={customer} label="Address"><%= customer.address %></:col>
+  <:col :let={customer} label="Phone"><%= customer.phone %></:col>
+  <:action :let={customer}>
+    <div class="sr-only">
+      <.link navigate={~p"/customers/#{customer}"}>Show</.link>
+    </div>
+    <.link navigate={~p"/customers/#{customer}/edit"}>Edit</.link>
+  </:action>
+  <:action :let={customer}>
+    <.link href={~p"/customers/#{customer}"} method="delete" data-confirm="Are you sure?">
+      Delete
+    </.link>
+  </:action>
+</.table>

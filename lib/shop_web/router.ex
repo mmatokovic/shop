@@ -17,6 +17,12 @@ defmodule ShopWeb.Router do
   scope "/", ShopWeb do
     pipe_through :browser
 
+    resources "/products", ProductController
+
+    resources "/orders", OrderController
+
+    resources "/customers", CustomerController
+
     get "/", PageController, :home
   end
 

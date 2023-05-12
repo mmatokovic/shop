@@ -16,3 +16,23 @@ Ready to run in production? Please [check our deployment guides](https://hexdocs
   * Docs: https://hexdocs.pm/phoenix
   * Forum: https://elixirforum.com/c/phoenix-forum
   * Source: https://github.com/phoenixframework/phoenix
+  
+## License
+
+See [LICENSE](./LICENSE).
+
+# Generate the Product model, migration, and controller
+mix phx.gen.html Products Product products name:string description:string price:float image_url:string
+
+# Generate the Order model, migration, and controller
+mix phx.gen.html Orders Order orders customer_name:string customer_address:string customer_email:string total:float status:string
+
+# Generate the OrderItem model and migration
+mix ecto.gen.migration create_order_items order_id:references:orders product_id:references:products quantity:integer unit_price:float
+
+# Generate the Customer model, migration, and controller
+mix phx.gen.html Customers Customer customers first_name:string last_name:string email:string address:string phone:string
+
+# Generate the Payment model and migration
+mix ecto.gen.migration create_payments order_id:references:orders status:string amount:float
+

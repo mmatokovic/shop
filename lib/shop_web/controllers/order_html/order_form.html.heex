@@ -1,0 +1,13 @@
+<.simple_form :let={f} for={@changeset} action={@action}>
+  <.error :if={@changeset.action}>
+    Oops, something went wrong! Please check the errors below.
+  </.error>
+  <.input field={f[:customer_name]} type="text" label="Customer name" />
+  <.input field={f[:customer_address]} type="text" label="Customer address" />
+  <.input field={f[:customer_email]} type="text" label="Customer email" />
+  <.input field={f[:total]} type="number" label="Total" step="any" />
+  <.input field={f[:status]} type="text" label="Status" />
+  <:actions>
+    <.button>Save Order</.button>
+  </:actions>
+</.simple_form>

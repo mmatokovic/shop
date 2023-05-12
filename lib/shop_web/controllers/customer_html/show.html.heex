@@ -1,0 +1,19 @@
+<.header>
+  Customer <%= @customer.id %>
+  <:subtitle>This is a customer record from your database.</:subtitle>
+  <:actions>
+    <.link href={~p"/customers/#{@customer}/edit"}>
+      <.button>Edit customer</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<.list>
+  <:item title="First name"><%= @customer.first_name %></:item>
+  <:item title="Last name"><%= @customer.last_name %></:item>
+  <:item title="Email"><%= @customer.email %></:item>
+  <:item title="Address"><%= @customer.address %></:item>
+  <:item title="Phone"><%= @customer.phone %></:item>
+</.list>
+
+<.back navigate={~p"/customers"}>Back to customers</.back>

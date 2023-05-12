@@ -1,0 +1,8 @@
+<.header>
+  New Customer
+  <:subtitle>Use this form to manage customer records in your database.</:subtitle>
+</.header>
+
+<.customer_form changeset={@changeset} action={~p"/customers"} />
+
+<.back navigate={~p"/customers"}>Back to customers</.back>
